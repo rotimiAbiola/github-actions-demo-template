@@ -13,9 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
+
     steps:
       - uses: actions/checkout@v2
       - name: npm install and build webpack
@@ -33,7 +31,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x]
         os: [ubuntu-latest, windows-2016]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
@@ -41,7 +39,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/download-artifact@master
       with:
-        name: webpack-artifacts
+        name: webpack artifacts
         path: public
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
