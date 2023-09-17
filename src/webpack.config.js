@@ -1,6 +1,6 @@
 const path = require('path');
 const crypto = require('crypto');
-const crypto_orig_createHash = crypto.createHash;
+const cryptoOrigCreateHash = crypto.createHash;
 crypto.createHash = algorithm => cryptoOrigCreateHash(algorithm === 'md4' ? 'sha256' : algorithm);
 
 module.exports = {
